@@ -1,13 +1,10 @@
 // [nuxt.config.ts];
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  app: {
-    baseURL: 'http://hi.newlecture.com',
-  },
   compatibilityDate: '2024-04-03',
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt'],
   typescript: { typeCheck: true },
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   // tailwindcss: {
   //   viewer: { endpoint: '/_tailwind', exportViewer: true },
   // },
@@ -26,8 +23,8 @@ export default defineNuxtConfig({
       { src: '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js' },
     ],
     devServer: {
-      // host: '0.0.0.0',
-      port: 3004,
+      host: '0.0.0.0',
+      port: 3000,
     },
   },
 });

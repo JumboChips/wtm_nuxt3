@@ -120,14 +120,6 @@
         >
           완료
         </button>
-        <div class="flex w-full mt-10">
-          <button
-            class="flex w-full justify-center items-center text-[#db3d39] font-light rounded-lg text-sm px-6 py-4"
-            @click="logout"
-          >
-            로그아웃
-          </button>
-        </div>
       </form>
     </section>
     <BasicModal
@@ -327,17 +319,6 @@ const fetchUserData = async () => {
   } catch (error) {
     console.error('데이터 요청 중 오류 발생:', error);
     isDataLoaded.value = false;
-  }
-};
-
-const logout = async () => {
-  try {
-    await authStore.signOut();
-    console.log('로그아웃 성공');
-    // 로그아웃 후 로그인 페이지로 이동
-    window.location.href = '/';
-  } catch (error) {
-    console.error('로그아웃 실패:', error);
   }
 };
 

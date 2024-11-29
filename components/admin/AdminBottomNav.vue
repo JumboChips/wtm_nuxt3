@@ -94,10 +94,41 @@
       </span>
       <span class="text-xs font-medium text-gray-600">유저 전환</span>
     </NuxtLink>
+    <NuxtLink :to="`/`" class="flex flex-col items-center" @click="logout">
+      <span class="p-2 mb-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-log-out w-6 h-6"
+        >
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+          <polyline points="16 17 21 12 16 7" />
+          <line x1="21" x2="9" y1="12" y2="12" />
+        </svg>
+      </span>
+      <span class="text-xs font-medium text-gray-600">로그아웃</span>
+    </NuxtLink>
   </div>
 </template>
 <script setup lang="ts">
 const route = useRoute();
 const storeId = route.params.storeId;
+const authStore = useAuthStore();
+
+const logout = async () => {
+  try {
+    await authStore.signOut();
+    console.log('로그아웃 성공');
+    // 로그아웃 후 로그인 페이지로 이동
+    window.location.href = '/';
+  } catch (error) {
+    console.error('로그아웃 실패:', error);
+  }
+};
 </script>
 <style></style>
